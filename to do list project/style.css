@@ -1,0 +1,44 @@
+
+
+.todo{
+    background-color: brown;
+
+}
+
+.todo-wrapper{
+    background-color: blueviolet;
+    padding:10px;
+    width: fit-content;
+
+}
+
+#todo-list{
+    background-color: white;
+    font-size: larger;
+    font-family: sans-serif;
+}
+
+.heading{
+    background-color:yellow;
+    border-radius: 7px;
+    text-align: center;
+}
+
+.pretty-button{
+   background-color:fuchsia;
+}
+
+.pretty-button:hover{
+    background-color:coral;
+}
+
+.instruction{
+    background-color:whitesmoke;
+    text-align: center;
+    font-size: large;
+    border-radius: 3px;
+}
+
+#todo-entry-box{
+    background-color:antiquewhite;
+}
