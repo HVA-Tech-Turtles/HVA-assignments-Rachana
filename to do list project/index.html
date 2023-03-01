@@ -5,30 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To do list</title>
-
+    <link rel="icon" href="./logo.jpg" >
     <link rel="stylesheet" href="style.css"/>
     
     
 </head>
-<body style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+<body >
     <div clas="todo">
    <div class="todo-wrapper">
     <h1  class="heading">Rachana's To Do list</h1>
     <p class="instruction">Double-click an item to mark it complete</p>
     <table>
     <form name="todo-adder">
-       <input type="text" id="todo-entry-box" placeholder="Add an item">
-       <input type="datetime-local" id="todo-entry-box">
+       <input type="text" id="todo-entry-box" placeholder="Add an item" autofocus >
+       <button  id="todo-dateandtime" onclick="openform()">Add date&time</button>
+      
+
+    </div>
     </form>
-    <button id="add-button" class="pretty-button">Add</button>
+    <button id="add-button" class="pretty-button" >Add</button>
     <button id="clear-completed-button" class="pretty-button">clear-completed</button>
     <button id="empty-button" class="pretty-button">Empty-list</button>
-    <button id="save-button" class="pretty-button">Save-list</button>         
- </table>
+    <button id="save-button" class="pretty-button">Save-list</button>       
+    
+    <div class="form-popup" id="myForm">
+        <form id="form-container">
+         <div id="datestyle">
+           <label for="dateInput"> Date</label>    
+           <input type="date" id="todo-date" >
+        </div>   
 
-    <ul id="todo-list" style="list-style-type: circle;">
+        <div id="timestyle">
+             <label for="timeInput">Time</label>
+             <input type="time" id="todo-time">
+       </div>
+         
+        <button type="button" class="btn" onclick="validate()">Ok</button>
+        <button type="button" class="btn" onclick="closeForm()">Close</button>
+        </form>
+ </table>
+    <ul id="todo-list" >
+        
     </ul> 
-   
    </div>
 </div> 
     <script src="/script.js"></script>

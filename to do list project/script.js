@@ -12,6 +12,7 @@ emptyButton.addEventListener("click",emptyList);
 
 function addToDoItem(){
  var itemText = toDoEntryBox.value;
+ toDoEntryBox.value=" ";
  newToDoItem(itemText, false);
 }
 
@@ -28,6 +29,12 @@ function newToDoItem(itemText, completed) {
     toDoItem.addEventListener("dblclick", toggleToDoItemState);
 }
 
+var list = document.querySelector('ul');
+list.addEventListener('dblclick', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
 
 var saveButton;
 saveButton=document.getElementById("save-button");
@@ -97,3 +104,20 @@ function loadList() {
     }
 }
 loadList();
+
+function openform() {
+    document.getElementById("myForm").style.display = "block";
+  }
+  
+  function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+  }
+
+  function validate(){
+    let currDate=new Date();
+    let enteredDate=document.getElementById("todo-date").value;
+    if(enteredDate<currDate){
+        alert("enter valid date");
+    }
+    console.log(enteredDate);
+  }
