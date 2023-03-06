@@ -60,10 +60,11 @@ body {
    background-color:fuchsia;
    border-radius: 30px;
    margin: 2px;
+   box-shadow: 2px 2px 1px rgb(31, 38, 41);
 }
 
 .pretty-button:hover{
-    background-color:coral;
+    background-color:rgba(180, 101, 160, 0.932);
 }
 
 .instruction{
@@ -72,19 +73,26 @@ body {
     font-size: large;
     border-radius: 3px;
 }
+#todo-dateandtime{
+  box-shadow: 2px 2px 1px rgb(31, 38, 41);
+  border-radius: 20px;
+}
 
 #todo-entry-box{
     background-color:antiquewhite;
-    margin: 2px;
     border-radius: 2px;
+    box-shadow: 2px 2px 1px rgb(31, 38, 41);
+    width: 150px;
 }
 
-.form-popup{
-  display: block;
-  position: fixed;
-  right: 10px;
-  top:110px;
-  background-color: #c7d3ca;
-  padding: 5px;
+#todo-date{
+  background-color:antiquewhite;
+  border-radius: 2px;
+  box-shadow: 2px 2px 1px rgb(31, 38, 41);
 }
 
+#todo-time{
+  background-color:antiquewhite;
+  border-radius: 2px;
+  box-shadow: 2px 2px 1px rgb(31, 38, 41);
+}

@@ -10,44 +10,31 @@
     
     
 </head>
-<body >
+<body onload="loadList()">
     <div clas="todo">
    <div class="todo-wrapper">
     <h1  class="heading">Rachana's To Do list</h1>
     <p class="instruction">Double-click an item to mark it complete</p>
     <table>
-    <form name="todo-adder">
-       <input type="text" id="todo-entry-box" placeholder="Add an item" autofocus >
-       <button  id="todo-dateandtime" onclick="openform()">Add date&time</button>
-      
-
-    </div>
-    </form>
+    
+       <input type="text" id="todo-entry-box" placeholder="Add item" autofocus >&nbsp;
+       <input type="date" id="todo-date">&nbsp;
+       <input type="time" id="todo-time">&nbsp;
+    
+    
     <button id="add-button" class="pretty-button" >Add</button>
     <button id="clear-completed-button" class="pretty-button">clear-completed</button>
     <button id="empty-button" class="pretty-button">Empty-list</button>
     <button id="save-button" class="pretty-button">Save-list</button>       
+    <button id="sort-button" class="pretty-button">Sort-list</button>
     
-    <div class="form-popup" id="myForm">
-        <form id="form-container">
-         <div id="datestyle">
-           <label for="dateInput"> Date</label>    
-           <input type="date" id="todo-date" >
-        </div>   
-
-        <div id="timestyle">
-             <label for="timeInput">Time</label>
-             <input type="time" id="todo-time">
-       </div>
-         
-        <button type="button" class="btn" onclick="validate()">Ok</button>
-        <button type="button" class="btn" onclick="closeForm()">Close</button>
-        </form>
- </table>
+    </table >
     <ul id="todo-list" >
         
     </ul> 
-   </div>
+    
+</div>  
+   
 </div> 
     <script src="/script.js"></script>
 

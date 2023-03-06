@@ -10,17 +10,46 @@ var emptyButton;
 emptyButton=document.getElementById("empty-button");
 emptyButton.addEventListener("click",emptyList);
 
+var saveButton;
+saveButton=document.getElementById("save-button");
+saveButton.addEventListener("click",saveList);
+
+var sortButton;
+sortButton=document.getElementById("sort-button");
+sortButton.addEventListener("click",sortList);
+
+var toDoEntryBox = document.getElementById("todo-entry-box");
+var toDoList = document.getElementById("todo-list");
+
+var dateEntered=document.getElementById("todo-date");
+var timeEntered=document.getElementById("todo-time");
+
 function addToDoItem(){
  var itemText = toDoEntryBox.value;
- toDoEntryBox.value=" ";
- newToDoItem(itemText, false);
+ toDoEntryBox.value="";
+ var dateInput=dateEntered.value;
+ dateEntered.value="";
+ var timeInput=timeEntered.value;
+ timeEntered.value=""
+ newToDoItem(itemText,dateInput,timeInput, false);
+ console.log(dateInput);
+ console.log(timeInput);
 }
 
-function newToDoItem(itemText, completed) {
+function newToDoItem(itemText,dateInput,timeInput, completed) {
     var toDoItem = document.createElement("li");
     var toDoText = document.createTextNode(itemText);
     toDoItem.appendChild(toDoText);
-
+    
+    
+    var toDoDate=document.createTextNode(dateInput);
+    var toDoTime=document.createTextNode(timeInput);
+    toDoItem.append("   (")
+    toDoItem.appendChild(toDoDate);
+    toDoItem.append(",")
+    toDoItem.appendChild(toDoTime);
+    toDoItem.append(")   ")
+    
     if (completed) {
         toDoItem.classList.add("completed");
     }
@@ -36,12 +65,7 @@ list.addEventListener('dblclick', function(ev) {
   }
 }, false);
 
-var saveButton;
-saveButton=document.getElementById("save-button");
-saveButton.addEventListener("click",saveList);
 
-var toDoEntryBox = document.getElementById("todo-entry-box");
-var toDoList = document.getElementById("todo-list");
 
 
 function toggleToDoItemState() {
@@ -65,6 +89,19 @@ function emptyList() {
     var toDoItems = toDoList.children;
     while (toDoItems.length > 0) {
         toDoItems.item(0).remove();
+    }
+}
+
+function sortList(){
+    var toDos = [];
+    var items=document.getElementsByTagName("li");
+    l=items.length; 
+    for (var i = 0; i < l; i++) {
+        toDos.push(items[i].innerHTML);
+    }
+    toDos.sort();
+    for(var i=0;i<l;i++){
+        items[i].innerHTML=toDos[i];
     }
 }
 
@@ -103,21 +140,7 @@ function loadList() {
         }
     }
 }
-loadList();
 
-function openform() {
-    document.getElementById("myForm").style.display = "block";
-  }
   
-  function closeForm() {
-    document.getElementById("myForm").style.display = "none";
-  }
 
-  function validate(){
-    let currDate=new Date();
-    let enteredDate=document.getElementById("todo-date").value;
-    if(enteredDate<currDate){
-        alert("enter valid date");
-    }
-    console.log(enteredDate);
-  }
+   
