@@ -23,7 +23,23 @@ var toDoList = document.getElementById("todo-list");
 var dateEntered=document.getElementById("todo-date");
 var timeEntered=document.getElementById("todo-time");
 
+//To validate the entered input
+function validate(){
+    var dateToCheck=new Date(dateEntered.value+" "+timeEntered.value);
+    correctDate=new Date();
+   if(toDoEntryBox.value===""){
+    alert("Task cannot be blank");
+   }
+   else if(dateToCheck<correctDate){
+     alert("Enter valid date"); 
+   }
+   else
+     return "true";
+}
+
+// Function to take valid inputs and pass to newToDoItem function
 function addToDoItem(){
+ if(validate()){   
  var itemText = toDoEntryBox.value;
  toDoEntryBox.value="";
  var dateInput=dateEntered.value;
@@ -31,18 +47,19 @@ function addToDoItem(){
  var timeInput=timeEntered.value;
  timeEntered.value=""
  newToDoItem(itemText,dateInput,timeInput, false);
- console.log(dateInput);
- console.log(timeInput);
+ }
 }
 
+// function to create and add new to do item to the table
 function newToDoItem(itemText,dateInput,timeInput, completed) {
     var items={
-        "inputText" : itemText,
-        "date":dateInput,
-        "time":timeInput
-    }
+        id :"",
+        todo:itemText,
+        date :dateInput,
+        time:timeInput
+    };
     var toDoItem=document.createElement("tr");
-    toDoItem.innerHTML=`<td>${items.inputText}</td><td>${items.date}</td><td>${items.time}</td>`
+    toDoItem.innerHTML=`<td>${items.todo}</td><td>${items.date}</td><td>${items.time}</td>`
     if (completed) {
         toDoItem.classList.add("completed");
     }
@@ -51,13 +68,7 @@ function newToDoItem(itemText,dateInput,timeInput, completed) {
     toDoItem.addEventListener("dblclick", toggleToDoItemState);
 }
 
-var list = document.querySelector('table');
-list.addEventListener('dblclick', function(ev) {
-  if (ev.target.tagName === 'tr') {
-    ev.target.classList.toggle('checked');
-  }
-}, false);
-
+//Function to toggle the task and mark it complete or incomplete
 function toggleToDoItemState() {
     if (this.classList.contains("completed")) {
         this.classList.remove("completed");
@@ -67,6 +78,7 @@ function toggleToDoItemState() {
     }
 }
 
+// Function to delete the completed items from the table
 function clearCompletedToDoItems() {
     var completedItems = toDoList.getElementsByClassName("completed");
 
@@ -75,29 +87,18 @@ function clearCompletedToDoItems() {
     }
 }
 
+//Function to empty the table completely
 function emptyList() {
-    alert("Warning: All to-do's will be deleted")
+    alert("Warning - All to-do's will be deleted");
     var toDoItems = toDoList.children;
     while (toDoItems.length > 0) {
         toDoItems.item(0).remove();
     }
 }
 
-function sortList(){
-    var toDos = [];
-    var items=document.getElementsByTagName("li");
-    l=items.length; 
-    for (var i = 0; i < l; i++) {
-        toDos.push(items[i].innerHTML);
-    }
-    toDos.sort();
-    for(var i=0;i<l;i++){
-        items[i].innerHTML=toDos[i];
-    }
-}
 
-var myArray = [];
 
+// globally decalred object
 var toDoInfo = {
     "task": "Thing I need to do",
     "date":"when",
@@ -105,29 +106,80 @@ var toDoInfo = {
     "completed": false
 };
 
-function saveList() {
+
+
+//Function to sort the tasks by date and time
+function sortList(){
     var toDos = [];
      
-    for (var i = 1; i < toDoList.children.length; i++) {
-        var toDo = toDoList.children.item(i);
-        console.log(toDo);
+    for (var i = 0; i < toDoList.children.length; i++) {
+        var toDo = toDoList.rows[i].cells[0].innerHTML;
+        var toDoDate= toDoList.rows[i].cells[1].innerHTML;
+        var toDoTime= toDoList.rows[i].cells[2].innerHTML;
+
         var toDoInfo = {
-            "task": toDo.in,
-            "completed": toDo.classList.contains("completed")
+            "task": toDo,
+            "date":toDoDate,
+            "time":toDoTime,
+            "completed": toDoList.children.item(i).classList.contains("completed")
         };
 
         toDos.push(toDoInfo);
+        
+    }
 
+    for(var i=0;i<toDos.length;i++){
+        toDos.sort((a,b)=>{
+            let aDate=new Date(a.date+" "+a.time);
+            let bDate=new Date(b.date+" "+b.time);
+            return aDate-bDate;
+        })
+    }
+    
+    var toDoItems = toDoList.children;
+    while (toDoItems.length > 0) {
+        toDoItems.item(0).remove();
+    }
+
+    for (var i = 0; i < toDos.length; i++) {
+        var toDo = toDos[i];
+        newToDoItem(toDo.task,toDo.date,toDo.time, toDo.completed);
+    }
+    
+}
+
+
+// Function to save the items in local storage 
+function saveList() {
+    var toDos = [];
+     
+    for (var i = 0; i < toDoList.children.length; i++) {
+        var toDo = toDoList.rows[i].cells[0].innerHTML;
+        var toDoDate= toDoList.rows[i].cells[1].innerHTML;
+        var toDoTime= toDoList.rows[i].cells[2].innerHTML;
+
+        var toDoInfo = {
+            "task": toDo,
+            "date":toDoDate,
+            "time":toDoTime,
+            "completed": toDoList.children.item(i).classList.contains("completed")
+        };
+
+        toDos.push(toDoInfo);
+        console.log(toDos);
+    
     }
 
     localStorage.setItem("toDos", JSON.stringify(toDos));
 }
 
+
+// Function to load the items of table
 function loadList() {
     if (localStorage.getItem("toDos") != null) {
         var toDos = JSON.parse(localStorage.getItem("toDos"));
 
-        for (var i = 1; i < toDos.length; i++) {
+        for (var i = 0; i < toDos.length; i++) {
             var toDo = toDos[i];
             newToDoItem(toDo.task,toDo.date,toDo.time, toDo.completed);
         }
@@ -135,5 +187,4 @@ function loadList() {
 }
 
   
-
    

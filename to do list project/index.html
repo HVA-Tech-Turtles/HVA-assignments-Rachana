@@ -13,40 +13,41 @@
 </head>
 <body onload="loadList()">
     <div clas="todo">
-   <div class="todo-wrapper">
-    <h1  class="heading">Rachana's To Do list</h1>
-    <p class="instruction">Double-click an item to mark it complete</p>
-    <table>
-    
-       <input type="text" id="todo-entry-box" placeholder="Add item" autofocus >&nbsp;
-       <input type="date" id="todo-date">&nbsp;
-       <input type="time" id="todo-time">&nbsp;
-    
-    
-    <button id="add-button" class="pretty-button" >Add</button>
-    <button id="clear-completed-button" class="pretty-button">clear-completed</button>
-    <button id="empty-button" class="pretty-button">Empty-list</button>
-    <button id="save-button" class="pretty-button">Save-list</button>       
-    <button id="sort-button" class="pretty-button">Sort-list</button>
-    
-    </table >
-    
-   <table  border="1">
-    <thead>
-    
-    <th id="to-do-item">Task</th>
-    <th id="date">Date</th>
-    <th id="time">Time</th>
-    
-    </thead> 
-    <tbody id="todo-list">
+        <div class="todo-wrapper">
+            <h1  class="heading">Rachana's To Do list</h1>
+            <p class="instruction">Double-click an item to mark it complete</p>
 
-    </tbody>
-   </table>
- 
-</div>  
+            <table>
+            
+            <input type="text" id="todo-entry-box" placeholder="Add task" autofocus >&nbsp;
+            <input type="date" id="todo-date">&nbsp;
+            <input type="time" id="todo-time">&nbsp;
+            
+            
+                <button id="add-button" class="pretty-button" >Add</button>
+                <button id="clear-completed-button" class="pretty-button">clear-completed</button>
+                <button id="empty-button" class="pretty-button">Empty-list</button>
+                <button id="save-button" class="pretty-button">Save-list</button>       
+                <button id="sort-button" class="pretty-button">Sort-list</button>
+            
+            </table >
+            
+            <table  id="todo-list1" border="1">
+                    <thead>
+                    
+                    <th id="to-do-item" style="width:60% ">Task</th>
+                    <th id="date" style="width:20%; padding: 1px; ">Date<i style="font-size: smaller; font-weight: 70;">(yyyy-mm-dd)</i></th>
+                    <th id="time"style="width:20%">Time</th>
+                    
+                    </thead> 
+                    <tbody id="todo-list">
+
+                    </tbody>
+            </table>
+        
+        </div>  
    
-</div> 
+    </div> 
     <script src="./script.js"></script>
 
 </body>
