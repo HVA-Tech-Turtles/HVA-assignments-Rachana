@@ -2,39 +2,34 @@ body {
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
      }
   
-  ul li:hover {
-    background:rgba(255, 81, 0, 0.603) ;
-  }
-  
-  ul li.checked {
+  table tr.completed {
     background:#5bcc7d;
     color: #fff;
     text-decoration: line-through;
   }
   
-  ul li.checked::before {
+  table tr.completed::before {
     content: '';
     position: absolute;
     border-color: #fff;
     border-style: solid;
     border-width: 0 2px 2px 0;
-    top: 10px;
+    top: 3px;
     left: 16px;
     transform: rotate(45deg);
     height: 15px;
     width: 7px;
   }
 
-  ul li {
+  
+  table tr {
     cursor: pointer;
     position: relative;
     padding: 12px 8px 12px 40px;
-    list-style: none;
-    list-style-type:lower-roman;
     font-size: 18px;
     transition: 0.2s;
   
-  }  
+  }   
 .todo-wrapper{
     background-color: blueviolet;
     padding: 2px;
@@ -48,6 +43,11 @@ body {
     font-size: larger;
     font-family: sans-serif;
     position:relative;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    
+    
 }
 
 .heading{
@@ -95,4 +95,11 @@ body {
   background-color:antiquewhite;
   border-radius: 2px;
   box-shadow: 2px 2px 1px rgb(31, 38, 41);
+}
+
+thead{
+  background-color: rgb(87, 231, 231);
+}
+thead:hover{
+  background-color: rgb(53, 139, 139);
 }

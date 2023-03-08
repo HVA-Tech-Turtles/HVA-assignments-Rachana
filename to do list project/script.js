@@ -20,7 +20,6 @@ sortButton.addEventListener("click",sortList);
 
 var toDoEntryBox = document.getElementById("todo-entry-box");
 var toDoList = document.getElementById("todo-list");
-
 var dateEntered=document.getElementById("todo-date");
 var timeEntered=document.getElementById("todo-time");
 
@@ -37,19 +36,13 @@ function addToDoItem(){
 }
 
 function newToDoItem(itemText,dateInput,timeInput, completed) {
-    var toDoItem = document.createElement("li");
-    var toDoText = document.createTextNode(itemText);
-    toDoItem.appendChild(toDoText);
-    
-    
-    var toDoDate=document.createTextNode(dateInput);
-    var toDoTime=document.createTextNode(timeInput);
-    toDoItem.append("   (")
-    toDoItem.appendChild(toDoDate);
-    toDoItem.append(",")
-    toDoItem.appendChild(toDoTime);
-    toDoItem.append(")   ")
-    
+    var items={
+        "inputText" : itemText,
+        "date":dateInput,
+        "time":timeInput
+    }
+    var toDoItem=document.createElement("tr");
+    toDoItem.innerHTML=`<td>${items.inputText}</td><td>${items.date}</td><td>${items.time}</td>`
     if (completed) {
         toDoItem.classList.add("completed");
     }
@@ -58,19 +51,17 @@ function newToDoItem(itemText,dateInput,timeInput, completed) {
     toDoItem.addEventListener("dblclick", toggleToDoItemState);
 }
 
-var list = document.querySelector('ul');
+var list = document.querySelector('table');
 list.addEventListener('dblclick', function(ev) {
-  if (ev.target.tagName === 'LI') {
+  if (ev.target.tagName === 'tr') {
     ev.target.classList.toggle('checked');
   }
 }, false);
 
-
-
-
 function toggleToDoItemState() {
     if (this.classList.contains("completed")) {
         this.classList.remove("completed");
+        
     } else {
         this.classList.add("completed");
     }
@@ -109,17 +100,19 @@ var myArray = [];
 
 var toDoInfo = {
     "task": "Thing I need to do",
+    "date":"when",
+    "time":"when",
     "completed": false
 };
 
 function saveList() {
     var toDos = [];
      
-    for (var i = 0; i < toDoList.children.length; i++) {
+    for (var i = 1; i < toDoList.children.length; i++) {
         var toDo = toDoList.children.item(i);
-
+        console.log(toDo);
         var toDoInfo = {
-            "task": toDo.innerText,
+            "task": toDo.in,
             "completed": toDo.classList.contains("completed")
         };
 
@@ -134,9 +127,9 @@ function loadList() {
     if (localStorage.getItem("toDos") != null) {
         var toDos = JSON.parse(localStorage.getItem("toDos"));
 
-        for (var i = 0; i < toDos.length; i++) {
+        for (var i = 1; i < toDos.length; i++) {
             var toDo = toDos[i];
-            newToDoItem(toDo.task, toDo.completed);
+            newToDoItem(toDo.task,toDo.date,toDo.time, toDo.completed);
         }
     }
 }

@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To do list</title>
     <link rel="icon" href="./logo.jpg" >
-    <link rel="stylesheet" href="style.css"/>
-    
+    <link rel="stylesheet" href="./style.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     
 </head>
 <body onload="loadList()">
@@ -29,14 +30,24 @@
     <button id="sort-button" class="pretty-button">Sort-list</button>
     
     </table >
-    <ul id="todo-list" >
-        
-    </ul> 
     
+   <table  border="1">
+    <thead>
+    
+    <th id="to-do-item">Task</th>
+    <th id="date">Date</th>
+    <th id="time">Time</th>
+    
+    </thead> 
+    <tbody id="todo-list">
+
+    </tbody>
+   </table>
+ 
 </div>  
    
 </div> 
-    <script src="/script.js"></script>
+    <script src="./script.js"></script>
 
 </body>
 </html>
