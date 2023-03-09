@@ -31,7 +31,7 @@ function validate(){
     alert("Task cannot be blank");
    }
    else if(dateToCheck<correctDate){
-     alert("Enter valid date"); 
+     alert("Enter valid date and time"); 
    }
    else
      return "true";
@@ -53,10 +53,10 @@ function addToDoItem(){
 // function to create and add new to do item to the table
 function newToDoItem(itemText,dateInput,timeInput, completed) {
     var items={
-        id :"",
         todo:itemText,
         date :dateInput,
-        time:timeInput
+        time:timeInput,
+        
     };
     var toDoItem=document.createElement("tr");
     toDoItem.innerHTML=`<td>${items.todo}</td><td>${items.date}</td><td>${items.time}</td>`
@@ -65,6 +65,9 @@ function newToDoItem(itemText,dateInput,timeInput, completed) {
     }
 
     toDoList.appendChild(toDoItem);
+    if(checkDates(items.date,items.time)){
+        toDoItem.classList.add("due");
+    }
     toDoItem.addEventListener("dblclick", toggleToDoItemState);
 }
 
@@ -186,5 +189,15 @@ function loadList() {
     }
 }
 
-  
-   
+//to check whether you have a task due  
+function checkDates(date,time){
+    console.log(date);
+   var enteredDate=new Date(date+" "+time);
+   console.log(enteredDate);
+   var toDate=new Date();
+   if(enteredDate<toDate){
+    return true;
+   }
+   else
+    return false;
+}   

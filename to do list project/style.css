@@ -4,9 +4,15 @@ body {
 
  /* to indicate completed item */
   table tr.completed {
-    background:#5bcc7d;
+    background:rgb(69, 218, 69);
     color: #fff;
     text-decoration: line-through;
+  }
+  
+  /*to indicate due item */
+  table tr.due {
+    background:rgb(223, 70, 70);
+    color: #fff;
   }
   
   /*to create Checkbox */
