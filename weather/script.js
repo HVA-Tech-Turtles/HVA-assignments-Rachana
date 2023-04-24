@@ -23,13 +23,13 @@ const showWeather = (data) => {
         weather.innerHTML = `<h2>${data.message}<h2>`
         return;
     }
-    weather.innerHTML = `
+    weather.innerHTML =`
         <div>
             <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" width="250px" height="250px">
         </div>
         <div>
 		    <h2>${data.name}</h2> 	
-            <h3>${data.main.temp} ℃</h3>
+            <h3>${9/5*data.main.temp+32} F</h3>
             <h4> ${data.weather[0].main} </h4>
         </div>
     `
