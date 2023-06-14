@@ -1,0 +1,27 @@
+.twitter-feed {
+    width: 400px;
+    margin: 0 auto;
+  }
+  
+  .feed-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .tweet {
+    border: 1px solid #ccc;
+    padding: 20px;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
+    width:50%;
+    height: 30%;
+  }
+  
+  .tweet p {
+    margin: 5px 0;
+  }
+  
+  .tweet strong {
+    font-weight: bold;
+  }
+  
