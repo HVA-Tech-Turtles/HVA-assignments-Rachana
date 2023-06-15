@@ -7,6 +7,7 @@ body {
 
 .container {
   position: relative;
+  padding: 0;
 }
 
 .content {
@@ -18,6 +19,7 @@ body {
   bottom: 0;
   width: 100%;
   height: 40px; /* Adjust the height value as per your footer height */
+  
 }
 
 
@@ -33,11 +35,20 @@ body {
 .Logo{
     width: 70px;
 }
-
+#header{
+  position:fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+}
+#content{
+  margin-top: 1500px;
+}
 .Heading{
     font-size: 50px;
     position: absolute;
-    left:500px;
+    left:650px;
     text-shadow: 3px 3px 3px #aaa;
 }
 
@@ -73,6 +84,7 @@ body {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
   } 
   
    .footer-links a {
@@ -125,3 +137,43 @@ body {
   padding: 10px;
 }
  
+.tweet-container{
+    margin-top: 150px;
+    width: 100% ;/* Adjust as needed */
+    height: 100%; /* Adjust as needed */
+    overflow: auto; /* Display scrollbar when necessary */
+  
+  
+}
+
+.tweet {
+  border: 1px solid #ccc;
+  padding: 20px;
+  padding-bottom: 0px;
+  margin-bottom: 10px;
+  width:70%;
+  height: 30%;
+  box-shadow: gray 0px 0px 0.5px ;
+  border-radius: 15px;
+}
+
+.tweet p {
+  margin: 5px 0;
+}
+
+.tweet strong {
+  font-weight: bold;
+}
+
+.weather-top{
+  padding-bottom: 20px;
+}
+
+
+.username{
+  font-size: 25px;
+}
+
+.my-custom-icon {
+  font-size: 23px;
+}

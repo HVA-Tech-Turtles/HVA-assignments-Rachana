@@ -5,20 +5,24 @@ import Banner from './components/Banner';
 import Navbar from './components/Navbar';
 import Weather from './components/Tweet/Weather';
 
+
 const App = () => {
   return (
     <div className="container">
 
       <div id='header'>
           <Banner/>
+          <div id='navbar'>
+          <Navbar/>
+        </div>
       </div>
       <div className="content">
         
-        <div id='navbar'>
-          <Navbar/>
-        </div>
+        
         <div id='feed'>
+
           <Weather/>
+          
         </div>
         
       </div>
