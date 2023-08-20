@@ -1,0 +1,185 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  position: relative;
+  padding: 0;
+}
+
+.content {
+  padding-bottom: 40px; /* Adjust the padding value to leave space for the footer */
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px; /* Adjust the height value as per your footer height */
+  
+}
+
+
+ .Header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    padding-left: 60px;
+    box-shadow: gray 0px 0px 2px ;
+}
+
+.Logo{
+    width: 70px;
+}
+#header{
+  position:fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+}
+#content{
+  margin-top: 1500px;
+}
+.Heading{
+    font-size: 50px;
+    position: absolute;
+    left:650px;
+    text-shadow: 3px 3px 3px #aaa;
+}
+#navbar{
+  margin-top: 30px;
+  padding: 0px;
+}
+.nav-items{
+    display: flex;
+    justify-content: space-around;
+    align-items:center;
+    list-style: none;
+    padding: 7px;
+    font-size:20px;
+    box-shadow: gray 0px 0px 2px ;
+    background-color: rgb(22, 137, 231);
+}
+
+.nav-items>li:hover{
+    color: blue;
+}
+
+.searchbar{
+    border-radius: 0px 10px 10px 0px;
+    box-sizing:content-box;
+    border-left: none;
+}
+
+.searchbtn{
+    background-color: white;
+    border-radius: 10px 0px 0px 10px;
+    border-right: none;
+}
+
+/* Footer styles */  
+   .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  } 
+  
+   .footer-links a {
+    color: #777;
+    text-decoration: none;
+    margin-right: 5px;
+    margin-left: 5px;
+    padding: 2px;
+  } 
+  
+   .footer-links a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer-social a {
+    color: #777;
+    text-decoration: none;
+    margin-right: 10px;
+  }
+  
+  .footer-social i {
+    font-size: 18px;
+  }
+  
+  .footer-bottom {
+    margin-top: 20px;
+    text-align: center;
+    color: #777;
+    font-size: 14px;
+  }
+  
+  .footer-bottom p {
+    margin: 0;
+  } 
+  
+  /* Adjust the size and color of Font Awesome icons if needed */
+  
+  
+.likes{
+  display: flex;
+  justify-content: space-around;
+  align-items:center;
+  list-style: none;
+  padding: 7px;
+}
+
+.tweet-img{
+  background-color:none;
+  width: auto;
+  height:auto;
+  padding: 10px;
+}
+ 
+.tweet-container{
+    display: flex;
+    justify-content:center;
+}
+
+.tweet {
+  border: 1px solid #ccc;
+  padding: 20px;
+  padding-bottom: 0px;
+  margin-bottom: 10px;
+  width:100%;
+  height: 40%;
+  box-shadow: gray 0px 0px 0.5px ;
+  border-radius: 15px;
+  list-style-type:none ;
+}
+
+.tweet p {
+  margin: 5px 0;
+}
+
+.tweet strong {
+  font-weight: bold;
+}
+
+.weather-top{
+  padding-top: 110px;
+}
+
+
+.username{
+  font-size: 25px;
+}
+
+.my-custom-icon {
+  font-size: 23px;
+}
+
+.content{
+  font-size: 18px;
+}
